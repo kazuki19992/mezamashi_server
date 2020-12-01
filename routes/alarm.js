@@ -6,7 +6,6 @@ var moment = require('moment');
 let setAlarm = moment('07:30:00', 'HH:mm:ss');
 
 
-
 // 停止したか
 let stopFlg = false;
 

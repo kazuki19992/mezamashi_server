@@ -29,8 +29,8 @@ router.get('/', function(req, res, next) {
   }
 });
 
-router.get('/hello', function(req, res, next) {
-  var param = {"result":"Hello World !"};
+router.get('/echo', function(req, res, next) {
+  var param = {"setTime":setAlarm.format('HH:mm:ss')};
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
 });

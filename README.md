@@ -1,1 +1,0 @@
-# mezamashi_server

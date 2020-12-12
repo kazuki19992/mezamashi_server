@@ -14,8 +14,8 @@ let stopFlg = false;
 router.get('/', function(req, res, next) {
 
   //  現在時刻
-  // const now = moment();
-  const now = moment('8:30:01', 'HH:mm:ss');
+  const now = moment();
+  // const now = moment('8:30:01', 'HH:mm:ss');
 
   console.log(now.format('HH:mm:ss'));
   console.log(setAlarm.format('HH:mm:ss'));

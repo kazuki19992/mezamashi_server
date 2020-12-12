@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
+const { set } = require('../app');
 
 // 設定時刻
 let setAlarm = moment('07:30:00', 'HH:mm:ss');
@@ -13,8 +14,8 @@ let stopFlg = false;
 router.get('/', function(req, res, next) {
 
   //  現在時刻
-  const now = moment();
-  // const now = moment('7:00:00', 'HH:mm:ss');
+  // const now = moment();
+  const now = moment('8:30:01', 'HH:mm:ss');
 
   console.log(now.format('HH:mm:ss'));
   console.log(setAlarm.format('HH:mm:ss'));
@@ -23,11 +24,9 @@ router.get('/', function(req, res, next) {
 
   tmp = setAlarm.clone();
   tmp.add(1, 'h');
-  if(now.isAfter(tmp) && !stopFlg){
+  if(now.isAfter(tmp)){
     // アラームから一時間たった後ならストップさせる
     stopFlg = true;
-  }else{
-    stopFlg = false;
   }
 
   if(now >= setAlarm && !stopFlg){

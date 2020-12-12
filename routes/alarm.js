@@ -67,6 +67,14 @@ router.post('/stop', function(req, res, next) {
   console.log('stopFlg='+stopFlg);
 });
 
+router.get('/set', function(req, res, next){
+  console.log('有効化');
+  stopFlg = false;
+  var param = {"res":"success"};
+  res.header('Content-Type', 'application/json; charset=utf-8')
+  res.send(param);
+})
+
 
 router.post('/update', function(req, res, next) {
   console.log(req.body);

@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 
   tmp = setAlarm.clone();
   tmp.add(1, 'h');
-  if(now.isAfter(tmp)){
+  if(now.isAfter(tmp) && !stopFlg){
     // アラームから一時間たった後ならストップさせる
     stopFlg = true;
   }else{

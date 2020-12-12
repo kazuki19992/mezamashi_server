@@ -14,9 +14,21 @@ router.get('/', function(req, res, next) {
 
   //  現在時刻
   const now = moment();
+  // const now = moment('7:00:00', 'HH:mm:ss');
+
   console.log(now.format('HH:mm:ss'));
   console.log(setAlarm.format('HH:mm:ss'));
   console.log(stopFlg);
+
+
+  tmp = setAlarm.clone();
+  tmp.add(1, 'h');
+  if(now.isAfter(tmp)){
+    // アラームから一時間たった後ならストップさせる
+    stopFlg = true;
+  }else{
+    stopFlg = false;
+  }
 
   if(now >= setAlarm && !stopFlg){
     var param = {"alarm":"true", "now":now.format('HH:mm:ss'), "set":setAlarm.format('HH:mm:ss')};

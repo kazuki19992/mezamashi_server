@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/echo', function(req, res, next) {
-  var param = {"setTime":setAlarm.format('HH:mm:ss')};
+  var param = {"setTime":setAlarm.format('HH:mm:ss'), "stopFlg": stopFlg};
   res.header('Content-Type', 'application/json; charset=utf-8')
   res.send(param);
 });
